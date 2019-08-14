@@ -500,7 +500,7 @@ long description (fdesc or ldesc), otherwise will print short."
 <GLOBAL FUMBLE-PROB 8>
 <GLOBAL ITAKE-LOC <>>
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ TEMP)
+<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ)
 	 #DECL ((VB) <OR ATOM FALSE> (CNT) FIX (OBJ) OBJECT)
 	 <COND (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB <YOU-CANT "take">)>
@@ -1023,7 +1023,7 @@ next to Impossible." CR>>
 <GLOBAL PERSON-ON-PHONE <>>
 <GLOBAL PERSON-ON-SONARPHONE <>>"
 
-<ROUTINE PRE-PHONE ("AUX" P PP)
+<ROUTINE PRE-PHONE ("AUX" P)
  <COND (<AND ,PRSI <IOBJ? MICROPHONE MICROPHONE-DOME>>
 	<PERFORM ,PRSA ,PRSO ,VIDEOPHONE>
 	<RTRUE>)
@@ -1290,7 +1290,7 @@ of your dive." CR>)>>
 <ROUTINE PRE-THROUGH ()		;"WALK WITH => FOLLOW"
  <COND (<FSET? ,PRSO ,PERSON> <PERFORM ,V?FOLLOW ,PRSO> <RTRUE>)>>
 
-<ROUTINE V-THROUGH ("OPTIONAL" (OBJ <>) "AUX" RM DIR)
+<ROUTINE V-THROUGH ("OPTIONAL" (OBJ <>) "AUX" RM)
 	#DECL ((OBJ) <OR OBJECT FALSE>)
 	<COND (<IN? ,PRSO ,ROOMS>
 	       <PERFORM ,V?WALK-TO ,PRSO>
@@ -1446,7 +1446,7 @@ of your dive." CR>)>>
 
 <ROUTINE V-FIX () <MORE-SPECIFIC>>
 
-<ROUTINE V-FOLLOW ("AUX" CN CHR COR PCOR L)
+<ROUTINE V-FOLLOW ("AUX" CN CHR L)
 	 <COND (<==? ,PRSO ,PLAYER>
 		<NOT-CLEAR-WHOM>)
 	       (<NOT <FSET? ,PRSO ,PERSON>>
@@ -1596,7 +1596,7 @@ either with the form in your package or from your dealer.)">
 
 <ROUTINE V-LAUNCH () <YOU-CANT ;"launch">>
 
-<ROUTINE V-STAND ("AUX" P)
+<ROUTINE V-STAND ()
 	 <COND (<FSET? <LOC ,WINNER> ,SURFACEBIT>
 		<MOVE ,WINNER ,HERE>
 		;<SETG PLAYER-HIDING <>>
@@ -1687,8 +1687,8 @@ either with the form in your package or from your dealer.)">
 		       <TELL "You can't see anything interesting." CR>)>
 		<SETG HERE .OLD-HERE>)>>
 
-<ROUTINE SEE-INTO? (THERE "AUX" P L TBL O)
-	 #DECL ((THERE O) OBJECT (P L) FIX)
+<ROUTINE SEE-INTO? (THERE "AUX" P L TBL)
+	 #DECL ((THERE) OBJECT (P L) FIX)
 	 <SET P 0>
 	 <REPEAT ()
 		 <COND (<0? <SET P <NEXTP ,HERE .P>>>
@@ -2245,7 +2245,7 @@ D ,PRSO " " .STR "s you right back. Wow, is your face red!" CR>>
 	<RTRUE>)
        (T <PRE-ASK-ABOUT>)>>
 
-<ROUTINE V-TELL-ABOUT ("AUX" P)
+<ROUTINE V-TELL-ABOUT ()
  <COND (<GETP ,PRSI ,P?TEXT> <TELL <GETP ,PRSI ,P?TEXT> CR>)
        (<DOBJ? PLAYER> <ARENT-TALKING>)
        (T <PERFORM ,V?ASK-ABOUT ,PRSO ,PRSI> <RTRUE>)>>
@@ -2430,7 +2430,7 @@ D ,PRSO " " .STR "s you right back. Wow, is your face red!" CR>>
 	 <SETG CLOCK-WAIT T>
 	 .RESULT>
 
-<ROUTINE INT-WAIT (N "AUX" TIM REQ VAL)
+<ROUTINE INT-WAIT (N "AUX" TIM REQ)
 	 <SET TIM ,MOVES>
 	 <COND (<==? ,M-FATAL <V-WAIT <SET REQ <RANDOM <* .N 2>>> <> T>>
 		<RFATAL>)

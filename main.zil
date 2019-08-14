@@ -230,7 +230,7 @@ ringing. Someone's trying to reach you over the private " D ,VIDEOPHONE
 	(DESC "such things")
 	(ACTION OBJECT-PAIR-F)>
 
-<ROUTINE OBJECT-PAIR-F ("AUX" P1 P2)
+<ROUTINE OBJECT-PAIR-F ()
  <COND (<L? 2 <GET ,P-PRSO ,P-MATCHLEN>>
 	<COND (<VERB? COMPARE>
 	       <TELL

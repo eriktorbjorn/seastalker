@@ -465,7 +465,7 @@ Greenup rises into view from the pilot's seat and gives himself up. ">
 	;(GENERIC GENERIC-WINDOW-F ;LOCKED-F)
 	(ACTION SUB-WINDOW-F)>
 
-<ROUTINE SUB-WINDOW-F ("AUX" ;(RM <WINDOW-ROOM ,HERE ,PRSO>) POP)
+<ROUTINE SUB-WINDOW-F ()
 	 <COND (<VERB? BRUSH>
 		<ALREADY ,SUB-WINDOW "clean enough">)
 	       (<VERB? LOOK-INSIDE LOOK-OUTSIDE>

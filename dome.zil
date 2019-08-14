@@ -73,7 +73,7 @@ subs can reach it by " D ,AUTO-PILOT ".\"" CR>)>)
 	(FLAGS NDESCBIT WINDOWBIT LOCKED)
 	(ACTION WINDOW-F)>
 
-<ROUTINE WINDOW-F ("AUX" ;(RM <WINDOW-ROOM ,HERE ,PRSO>) POP)
+<ROUTINE WINDOW-F ()
 	 <COND (<VERB? BRUSH>
 		<TELL
 "The window is clean enough without your interference." CR>)
@@ -401,7 +401,7 @@ oxygen." CR>)
 	(FLAGS VOWELBIT)
 	(ACTION CREW-GLOBAL-F)>
 
-<ROUTINE CREW-GLOBAL-F ("AUX" L)
+<ROUTINE CREW-GLOBAL-F ()
  <COND (<AND <SPEAKING-VERB?>
 	     <DOBJ? CREW-GLOBAL>>
 	<TELL "The " D ,CREW-GLOBAL>
